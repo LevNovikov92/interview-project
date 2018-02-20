@@ -1,0 +1,53 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.levnovikov.interview_project"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+dependencies {
+    implementation libs.appcompatV7
+    implementation libs.constraintLayout
+    implementation libs.recyclerView
+    implementation libs.appcompatV7
+    implementation libs.rxJava
+    implementation libs.rxAndroid
+    implementation libs.dagger
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation libs.retrofit
+    implementation libs.retrofitRxjavaAdapter
+    implementation libs.okHttp
+}
+
+dependencies {
+    annotationProcessor aptLibs.databinding
+    annotationProcessor libs.daggerCompiler
+}
+dependencies {
+    testImplementation testLibs.jUnit
+    testImplementation testLibs.mockito
+    testImplementation testLibs.mockito_inline
+    testImplementation testLibs.mockitoKotlin
+}
+repositories {
+    mavenCentral()
+}
